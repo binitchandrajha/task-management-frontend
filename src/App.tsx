@@ -4,6 +4,8 @@ import { RouterProvider } from "react-router/dom";
 import { LoginPage } from "./pages/auth/LoginPage";
 import { RegisterPage } from "./pages/auth/RegisterPage";
 import { DashboardPage } from "./pages/main/DashboardPage";
+import { TaskBoardPage } from "./pages/main/TaskBoardPage";
+import { SpacesPage } from "./pages/main/SpacesPage";
 import { ForgotPasswordPage } from "./pages/auth/ForgotPasswordPage";
 import { MainLayout } from "./components/layout/MainLayout";
 
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <DashboardPage />,
+      },
+      {
+        path: "/board",
+        element: <TaskBoardPage />,
+      },
+      {
+        path: "/spaces",
+        element: <SpacesPage />,
       },
     ],
   },

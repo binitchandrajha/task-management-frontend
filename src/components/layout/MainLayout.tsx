@@ -30,7 +30,7 @@ interface NavItem {
 
 const primaryNav: NavItem[] = [
   { label: 'Home', to: '/dashboard', icon: Home },
-  { label: 'My Tasks', to: '/tasks', icon: List },
+  { label: 'My Tasks', to: '/board', icon: List },
   { label: 'Spaces', to: '/spaces', icon: LayoutGrid },
   { label: 'Folders', to: '/folders', icon: Folder },
   { label: 'Lists', to: '/lists', icon: List },
