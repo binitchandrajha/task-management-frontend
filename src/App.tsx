@@ -5,6 +5,7 @@ import { LoginPage } from "./pages/auth/LoginPage";
 import { RegisterPage } from "./pages/auth/RegisterPage";
 import { DashboardPage } from "./pages/main/DashboardPage";
 import { ForgotPasswordPage } from "./pages/auth/ForgotPasswordPage";
+import { MainLayout } from "./components/layout/MainLayout";
 
 export const router = createBrowserRouter([
     {
@@ -24,9 +25,15 @@ export const router = createBrowserRouter([
     element: <ForgotPasswordPage />,
   },
   {
-    path: "/dashboard",
-    element: <DashboardPage />,
-  }
+    // App shell: authenticated screens render inside MainLayout's <Outlet />.
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashboardPage />,
+      },
+    ],
+  },
 ]);
 
 function App() {
