@@ -1,20 +1,17 @@
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
 import {
-  Archive,
   Bell,
-  Folder,
+  FolderKanban,
   HelpCircle,
   Home,
   LayoutGrid,
-  List,
   Menu,
   Moon,
   Plus,
   Search,
   Settings,
   Sun,
-  Trash2,
   X,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -29,16 +26,8 @@ interface NavItem {
 }
 
 const primaryNav: NavItem[] = [
-  { label: 'Home', to: '/dashboard', icon: Home },
-  { label: 'My Tasks', to: '/board', icon: List },
-  { label: 'Spaces', to: '/spaces', icon: LayoutGrid },
-  { label: 'Folders', to: '/folders', icon: Folder },
-  { label: 'Lists', to: '/lists', icon: List },
-];
-
-const secondaryNav: NavItem[] = [
-  { label: 'Archive', to: '/archive', icon: Archive },
-  { label: 'Trash', to: '/trash', icon: Trash2 },
+  { label: 'Dashboard', to: '/dashboard', icon: Home },
+  { label: 'Projects', to: '/projects', icon: FolderKanban },
 ];
 
 /** Renders a single sidebar link with active-state styling. */
@@ -82,17 +71,11 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
       </div>
 
       <Button leftIcon={<Plus className="h-4 w-4" />} onClick={onNavigate}>
-        New Task
+        New Project
       </Button>
 
       <nav className="flex flex-1 flex-col gap-1">
         {primaryNav.map((item) => (
-          <SidebarLink key={item.label} item={item} onNavigate={onNavigate} />
-        ))}
-      </nav>
-
-      <nav className="flex flex-col gap-1 border-t border-slate-200 pt-4 dark:border-slate-800">
-        {secondaryNav.map((item) => (
           <SidebarLink key={item.label} item={item} onNavigate={onNavigate} />
         ))}
       </nav>
